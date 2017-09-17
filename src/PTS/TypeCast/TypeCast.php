@@ -113,17 +113,28 @@ class TypeCast
                 ? $this->extractStringRule($rule)
                 : $this->extractArrayRule($rule);
 
-            $handler = $this->types[$handlerAlias] ?? null;
-
-            if (!$handler) {
-                throw new PropException("Handler not found for alias: {$handlerAlias}");
-            }
-
-            $params = $handlerAlias === 'each' ? [$params] : $params;
-            $value = $handler($value, ...$params);
+            $value = $this->applyCastType($value, $params, $handlerAlias);
         }
 
         return $value;
+    }
+
+    /**
+     * @param mixed $value
+     * @param array $params
+     * @param string $handlerAlias
+     * @return mixed
+     * @throws PropException
+     */
+    protected function applyCastType($value, array $params, string $handlerAlias)
+    {
+        $handler = $this->types[$handlerAlias] ?? null;
+        if (!$handler) {
+            throw new PropException("Handler not found for alias: {$handlerAlias}");
+        }
+
+        $params = $handlerAlias === 'each' ? [$params] : $params;
+        return $handler($value, ...$params);
     }
 
     /**

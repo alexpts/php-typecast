@@ -20,8 +20,10 @@ $body = [
     'user' => [
         'name' => 'Alex'
         'age' => '29',
+        'isAdmin' = 'false',
     ],
-    'friendsIds' => ['1', '2', '3', 4]
+    'friendsIds' => ['1', '2', '3', 4],
+    'date' => '12-12-2017',
 ];
 
 $caster = new TypeCast(new DeepArray);
@@ -34,6 +36,7 @@ $data = $caster->cast($body, [
     'user.name' => ['string'],
     'user.age' => ['int'],
     'user.isAdmin' => ['bool'],
+    'date' => 'datetime'
 ]);
 
 /*
@@ -45,6 +48,7 @@ $data ==== [
         'isAdmin' = false,
     ],
     'friendsIds' => [1, 2, 3, 4]
+    'date' => new \DateTime('12-12-2017')
 ];
 */
 ```

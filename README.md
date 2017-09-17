@@ -1,6 +1,6 @@
 # PHP typecast
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/de0407d9-12fe-4d3d-a688-9b29b10a0e46/big.png)](https://insight.sensiolabs.com/projects/de0407d9-12fe-4d3d-a688-9b29b10a0e46)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/6f827635-029d-44bb-9482-2487b7d4a39a/big.png)](https://insight.sensiolabs.com/projects/6f827635-029d-44bb-9482-2487b7d4a39a)
 
 [![Build Status](https://travis-ci.org/alexpts/php-typecast.svg?branch=master)](https://travis-ci.org/alexpts/php-typecast)
 [![Code Coverage](https://scrutinizer-ci.com/g/alexpts/php-typecast/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/alexpts/php-typecast/?branch=master)

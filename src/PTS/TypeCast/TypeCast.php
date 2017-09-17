@@ -57,7 +57,7 @@ class TypeCast
      */
     protected function setType(string $type): callable
     {
-        return function ($value) use ($type) {
+        return function($value) use ($type) {
             settype($value, $type);
 
             return $value;

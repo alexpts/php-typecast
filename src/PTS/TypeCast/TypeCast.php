@@ -3,6 +3,7 @@
 namespace PTS\TypeCast;
 
 use PTS\Tools\DeepArray;
+use PTS\Tools\RegExpFactory;
 use PTS\TypeCast\Types\DateTimeType;
 
 class TypeCast
@@ -17,13 +18,16 @@ class TypeCast
 
     /** @var DeepArray */
     protected $deepArrayService;
+    /** @var RegExpFactory */
+    protected $regExpFactory;
     /** @var PropException */
     protected $notExistValue;
 
-    public function __construct(DeepArray $deepArrayService)
+    public function __construct(DeepArray $deepArrayService, RegExpFactory $regExpFactory)
     {
         $this->notExistValue = new PropException('Value is not exists');
         $this->deepArrayService = $deepArrayService;
+        $this->regExpFactory = $regExpFactory;
 
         $this->registerType('string', $this->setType('string'))
             ->registerType('int', $this->setType('int'))
@@ -33,7 +37,13 @@ class TypeCast
             ->registerType('object', $this->setType('object'))
             ->registerType('null', $this->setType('null'))
             ->registerType('datetime', new DateTimeType)
+            ->registerType('numbers', $regExpFactory->create('~[^\d+]~', ''))
             ->registerType('each', [$this, 'eachHandlerType']);
+    }
+
+    public function getRegExpFactory(): RegExpFactory
+    {
+        return $this->regExpFactory;
     }
 
     /**

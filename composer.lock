@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8f1d2c2b226ba5bd2fba4acb8e98dbe",
+    "content-hash": "a9205571909a24c9325443c8ac5315d6",
     "packages": [
         {
             "name": "alexpts/php-tools",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alexpts/php-tools.git",
-                "reference": "98f502cdcfa1dca21a1795a99e8b218ab544005d"
+                "reference": "648d4c3639d361b101e34648d0e14e02ba11cf9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alexpts/php-tools/zipball/98f502cdcfa1dca21a1795a99e8b218ab544005d",
-                "reference": "98f502cdcfa1dca21a1795a99e8b218ab544005d",
+                "url": "https://api.github.com/repos/alexpts/php-tools/zipball/648d4c3639d361b101e34648d0e14e02ba11cf9e",
+                "reference": "648d4c3639d361b101e34648d0e14e02ba11cf9e",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
             ],
             "description": "Php tools",
             "homepage": "https://github.com/alexpts/php-tools",
-            "time": "2017-09-03T20:18:14+00:00"
+            "time": "2017-09-19T17:41:28+00:00"
         }
     ],
     "packages-dev": [

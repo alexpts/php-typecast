@@ -74,6 +74,9 @@ Set type to float
 ##### null
 Set type to null
 
+##### numbers
+Remove all not number symbols from string
+
 ##### each
 Convert each array item to describe types (see example above)
 

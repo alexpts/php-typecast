@@ -3,6 +3,7 @@ declare(strict_types = 1);
 
 use PHPUnit\Framework\TestCase;
 use PTS\Tools\DeepArray;
+use PTS\Tools\RegExpFactory;
 use PTS\TypeCast\PropException;
 use PTS\TypeCast\TypeCast;
 
@@ -13,7 +14,7 @@ class DateTimeCastTest extends TestCase
 
     public function setUp()
     {
-        $this->service = new TypeCast(new DeepArray);
+        $this->service = new TypeCast(new DeepArray, new RegExpFactory);
     }
 
     /**

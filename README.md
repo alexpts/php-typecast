@@ -38,7 +38,7 @@ $data = $caster->cast($body, [
     'user.age' => ['int'],
     'user.isAdmin' => ['bool'],
     'date' => ['datetime'],
-    'date2' => ['datetime', ['datetime' => ['Y-m-d']]], // full format
+    'date2' => ['datetime', ['datetimeFormat' => ['Y-m-d']]], // full format
 ]);
 
 /*

@@ -23,7 +23,8 @@ $body = [
         'isAdmin' = 'false',
     ],
     'friendsIds' => ['1', '2', '3', 4],
-    'date' => '12-12-2017',
+    'date' => '11-12-2017',
+    'date2' => '11-12-2017',
 ];
 
 $caster = new TypeCast(new DeepArray);
@@ -36,7 +37,8 @@ $data = $caster->cast($body, [
     'user.name' => ['string'],
     'user.age' => ['int'],
     'user.isAdmin' => ['bool'],
-    'date' => 'datetime'
+    'date' => ['datetime'],
+    'date2' => ['datetime', ['datetime' => ['Y-m-d']]],
 ]);
 
 /*
@@ -47,8 +49,9 @@ $data ==== [
         'age' => 29,
         'isAdmin' = false,
     ],
-    'friendsIds' => [1, 2, 3, 4]
-    'date' => new \DateTime('12-12-2017')
+    'friendsIds' => [1, 2, 3, 4],
+    'date' => new \DateTime('11-12-2017'),
+    'date2' => new \DateTime('2017-12-11'),
 ];
 */
 ```
@@ -82,6 +85,9 @@ Convert each array item to describe types (see example above)
 
 ##### datetime
 Convert value to \DateTime object with default timezone
+
+##### datetimeFormat
+Convert \DateTime object to string via format method
 
 #### Custom convert type
 You can add custom convert via method on TypeCast service

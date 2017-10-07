@@ -37,6 +37,7 @@ class TypeCast
             ->registerType('object', $this->setType('object'))
             ->registerType('null', $this->setType('null'))
             ->registerType('datetime', new DateTimeType)
+            ->registerType('datetimeFormat', [$this, 'datetimeFormat'])
             ->registerType('numbers', $regExpFactory->create('~[^\d+]~', ''))
             ->registerType('each', [$this, 'eachHandlerType']);
     }
@@ -44,6 +45,11 @@ class TypeCast
     public function getRegExpFactory(): RegExpFactory
     {
         return $this->regExpFactory;
+    }
+
+    protected function datetimeFormat(\DateTime $value, string $format = 'd-m-Y'): string
+    {
+        return $value->format($format);
     }
 
     /**

@@ -38,7 +38,7 @@ $data = $caster->cast($body, [
     'user.age' => ['int'],
     'user.isAdmin' => ['bool'],
     'date' => ['datetime'],
-    'date2' => ['datetime', ['datetime' => ['Y-m-d']]],
+    'date2' => ['datetime', ['datetime' => ['Y-m-d']]], // full format
 ]);
 
 /*
@@ -51,7 +51,7 @@ $data ==== [
     ],
     'friendsIds' => [1, 2, 3, 4],
     'date' => new \DateTime('11-12-2017'),
-    'date2' => new \DateTime('2017-12-11'),
+    'date2' => '2017-12-11',
 ];
 */
 ```

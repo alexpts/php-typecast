@@ -100,6 +100,7 @@ class TypeCast
     /**
      * @param array $data
      * @param array $rules
+     *
      * @return array
      * @throws PropException
      */
@@ -108,7 +109,7 @@ class TypeCast
         foreach ($rules as $name => $attrRules) {
             $value = $this->getValue($name, $data, $this->notExistValue);
 
-            if (!($value instanceof $this->notExistValue)) {
+            if (!($value instanceof $this->notExistValue) && $value !== null) {
                 $value = $this->castValue($value, $attrRules);
                 $this->setValue($name, $data, $value);
             }

@@ -17,18 +17,19 @@ class TypeCastTest extends TestCase
         $this->service = new TypeCast(new DeepArray, new RegExpFactory);
     }
 
-    public function testGetRegExpFactory()
+    public function testGetRegExpFactory(): void
     {
-        $this->assertInstanceOf(RegExpFactory::class, $this->service->getRegExpFactory());
+        $actual = $this->service->getRegExpFactory();
+        self::assertInstanceOf(RegExpFactory::class, $actual);
     }
 
-    public function testGetRules()
+    public function testGetRules(): void
     {
         $types = $this->service->getTypes();
         self::assertGreaterThan(6, count($types));
     }
 
-    public function testRegisterRule()
+    public function testRegisterRule(): void
     {
         $this->service->registerType('someCast2', function() {
             return true;
@@ -42,7 +43,7 @@ class TypeCastTest extends TestCase
     /**
      * @throws PropException
      */
-    public function testCastInt()
+    public function testCastInt(): void
     {
         $data = ['age' => 24, 'badAge' => '24'];
         $castedData = $this->service->cast($data, [
@@ -58,7 +59,7 @@ class TypeCastTest extends TestCase
     /**
      * @throws PropException
      */
-    public function testDeepProperty()
+    public function testDeepProperty(): void
     {
         $body = ['user' => [
             'isUser' => false,
@@ -78,7 +79,7 @@ class TypeCastTest extends TestCase
     /**
      * @throws PropException
      */
-    public function testCollectionEach()
+    public function testCollectionEach(): void
     {
         $body = ['members' => [1, '2', '3', 4]];
 
@@ -96,7 +97,7 @@ class TypeCastTest extends TestCase
     /**
      * @throws PropException
      */
-    public function testBadRule()
+    public function testBadRule(): void
     {
         $this->expectException(PropException::class);
 
@@ -104,5 +105,20 @@ class TypeCastTest extends TestCase
         $this->service->cast($body, [
             'members' => ['badTypeCast'],
         ]);
+    }
+
+    /**
+     * @throws PropException
+     */
+    public function testSkipCastNull(): void
+    {
+        $body = ['scale' => null];
+
+        $data = $this->service->cast($body, [
+            'scale' => ['float'],
+        ]);
+
+        self::assertInternalType('null', $data['scale']);
+        self::assertNull($data['scale']);
     }
 }

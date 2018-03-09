@@ -4,6 +4,7 @@ namespace PTS\TypeCast;
 
 use PTS\Tools\DeepArray;
 use PTS\Tools\RegExpFactory;
+use PTS\TypeCast\Types\BoolType;
 use PTS\TypeCast\Types\DateTimeType;
 
 class TypeCast
@@ -32,7 +33,7 @@ class TypeCast
         $this->registerType('string', $this->setType('string'))
             ->registerType('int', $this->setType('int'))
             ->registerType('float', $this->setType('float'))
-            ->registerType('bool', $this->setType('bool'))
+            ->registerType('bool', new BoolType)
             ->registerType('array', $this->setType('array'))
             ->registerType('object', $this->setType('object'))
             ->registerType('null', $this->setType('null'))

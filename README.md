@@ -62,6 +62,9 @@ $data ==== [
 ##### string
 Set type to string
 
+##### bool
+Set type to boolean
+
 ##### int
 Set type to int
 

@@ -58,21 +58,6 @@ class TypeCastTest extends TestCase
     /**
      * @throws PropException
      */
-    public function testValidateBool()
-    {
-        $body = ['isUser' => true, 'isGuest' => 'false'];
-        $data = $this->service->cast($body, [
-            'isUser' => ['bool'],
-            'isGuest' => ['bool'],
-        ]);
-
-        self::assertInternalType('bool', $data['isGuest']);
-        self::assertInternalType('bool', $data['isUser']);
-    }
-
-    /**
-     * @throws PropException
-     */
     public function testDeepProperty()
     {
         $body = ['user' => [
